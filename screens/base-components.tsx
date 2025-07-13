@@ -1,15 +1,17 @@
 import { View, ScrollView, Text } from 'react-native';
-import Button from 'components/Button';
+import Button from 'components/button/button';
 import { useColorScheme } from 'nativewind';
+import { useNavigation } from '@react-navigation/native';
 
 export default function BaseComponents() {
   const { colorScheme, toggleColorScheme } = useColorScheme();
+  const navigation = useNavigation();
 
   return (
-    <ScrollView className="dark:bg-dark flex-1 p-4">
+    <ScrollView className="flex-1 p-4 dark:bg-dark">
       <View className="flex-col items-center gap-4">
         {/* Theme Toggle Section */}
-        <View className="dark:bg-dark border-border w-full rounded-lg border border-gray-500 p-4">
+        <View className="border-border w-full rounded-lg border border-gray-500 p-4 dark:bg-dark">
           <Text className="mb-2 text-lg font-semibold dark:text-white">Theme Settings</Text>
           <Text className="mb-4 dark:text-white">Current theme: {colorScheme}</Text>
           <Button
@@ -36,9 +38,15 @@ export default function BaseComponents() {
             <Button title="Click me" onPress={() => alert('Button pressed')} size="lg" />
             <Button
               title="Click me"
-              onPress={() => alert('Button pressed')}
+              onPress={() => navigation.navigate('Onboarding' as never)}
               variant="outline"
               size="xlg"
+            />
+            <Button
+              title="Click me"
+              onPress={() => navigation.navigate('Onboarding' as never)}
+              variant="text"
+              size="text"
             />
           </View>
         </View>

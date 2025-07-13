@@ -4,6 +4,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import './global.css';
 import { useColorScheme } from 'nativewind';
 
+import Onboarding from 'screens/onboarding';
+
 const Stack = createNativeStackNavigator();
 
 function WelcomeStack() {
@@ -19,7 +21,9 @@ function WelcomeStack() {
         headerTitleStyle: {
           color: colorScheme === 'dark' ? '#ffffff' : '#1C1C1E',
         },
+        headerShown: false,
       }}>
+      <Stack.Screen name="Onboarding" component={Onboarding} />
       <Stack.Screen name="BaseComponents" component={BaseComponents} />
     </Stack.Navigator>
   );

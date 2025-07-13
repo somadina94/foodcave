@@ -4,8 +4,8 @@ import { twMerge } from 'tailwind-merge';
 type ButtonProps = {
   title: string;
   onPress: () => void;
-  variant?: 'primary' | 'outline';
-  size?: 'xxsm' | 'xsm' | 'sm' | 'md' | 'xmd' | 'lg' | 'xlg';
+  variant?: 'primary' | 'outline' | 'text';
+  size?: 'text' | 'xxsm' | 'xsm' | 'sm' | 'md' | 'xmd' | 'lg' | 'xlg';
 };
 
 export default function Button({ title, onPress, variant = 'primary', size = 'md' }: ButtonProps) {
@@ -13,6 +13,8 @@ export default function Button({ title, onPress, variant = 'primary', size = 'md
     'rounded-lg justify-center items-center w-full',
     variant === 'primary' && 'bg-primary',
     variant === 'outline' && 'bg-transparent border border-primary',
+    variant === 'text' && 'bg-transparent',
+    size === 'text' && 'p-0 w-auto',
     size === 'xxsm' && 'p-2 w-[100px] h-[33px]',
     size === 'xsm' && 'p-2 w-[136px] h-[38px]',
     size === 'sm' && 'p-2 w-[166px] h-[40px]',
@@ -26,6 +28,9 @@ export default function Button({ title, onPress, variant = 'primary', size = 'md
     'font-bold',
     variant === 'primary' && 'text-white',
     variant === 'outline' && 'text-primary',
+    variant === 'text' && 'text-blue-500',
+    size === 'text' &&
+      'text-blue-500 font-regular                                                                                                           ',
     size === 'xxsm' && 'text-[14px] font-regular',
     size === 'xsm' && 'text-[14px] font-medium',
     size === 'sm' && 'text-[14px] font-medium',
