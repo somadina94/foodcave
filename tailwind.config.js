@@ -10,6 +10,7 @@ module.exports = {
         primary: '#00C569',
         foreground: '#ffffff',
         dark: '#1C1C1E',
+        light: '#FFFFFF',
       },
       borderRadius: {
         sm: '0.25rem',
